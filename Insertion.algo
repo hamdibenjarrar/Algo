@@ -1,0 +1,16 @@
+ insertion_sort(arr : ARRAY_OF INTEGER)
+
+ Begin
+
+    FOR i FROM 1 TO arr.length-1 DO
+        key := arr[i]
+        j := i - 1
+        WHILE j >= 0 AND arr[j] > key DO
+            arr[j+1] := arr[j]
+            j := j - 1
+        END_WHILE
+        arr[j+1] := key
+    END_FOR
+    
+ END. 
+

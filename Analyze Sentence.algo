@@ -1,0 +1,42 @@
+ALGORITHM AnalyzeSentence
+    INPUT: A sentence entered character by character, ending with a period '.'
+    OUTPUT: Total characters, total words, and total vowels in the sentence
+
+    VARIABLES:
+        char_count ← 0      // Counter for characters
+        word_count ← 0      // Counter for words
+        vowel_count ← 0     // Counter for vowels
+        char ← ''           // Current character being read
+
+    Begin
+        PRINT "Enter the sentence character by character, ending with a period (.)"
+        
+        REPEAT
+            READ char       // Read one character at a time
+
+            IF char = '.' THEN
+                BREAK       // End of sentence, exit the loop
+            END_IF
+
+            char_count ← char_count + 1    // Increment character count
+
+            // Check for vowels
+            IF char IN ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'] THEN
+                vowel_count ← vowel_count + 1
+            END_IF
+
+            // Check for spaces to count words
+            IF char = ' ' THEN
+                word_count ← word_count + 1
+            END_IF
+        UNTIL char = '.'
+
+        // Increment word_count by 1 for the last word
+        IF char_count > 0 THEN
+            word_count ← word_count + 1
+        END_IF
+
+        PRINT "Total characters (excluding the period):", char_count
+        PRINT "Total words in the sentence:", word_count
+        PRINT "Total vowels in the sentence:", vowel_count
+    END
